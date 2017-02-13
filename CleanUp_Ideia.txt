@@ -1,0 +1,19 @@
+Primeira Parte:
+
+Ideia: desenvolver script que realize limpeza de containers que não estejam sendo usados e imagens que não possuem tag.
+
+desafios: pesquisar alguma forma de listar os id's dos containers, realizar a consulta para saber o status do container e removê-lo.
+
+containers with status = exited:
+docker rm $(docker ps -aqf status=exited)
+
+remove untagged
+docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+
+
+if ((os.system('docker inspect -f {{.RepoTags}} %s' % image.id)) == '[]'):
+        print "Untagged Image"
+
+Segunda Parte:
+
+Verificar o tempo de existência (idade) do container e checar o nível de obsolescência, caso for muito obsoleto, para o container para que a imagem seja removida
