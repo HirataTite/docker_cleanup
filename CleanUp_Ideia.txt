@@ -10,10 +10,20 @@ docker rm $(docker ps -aqf status=exited)
 remove untagged
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 
-
 if ((os.system('docker inspect -f {{.RepoTags}} %s' % image.id)) == '[]'):
         print "Untagged Image"
 
-Segunda Parte:
+===================
+- Exibe o hash do container
+- Exibe status do container
+- Exibe a data de criação e de término do container
+- Remove os containers com status "exited"
+===================
 
+Segunda Parte:
+"Another style of <none>:<none> images are the dangling images which can cause disk space problems."
 Verificar o tempo de existência (idade) do container e checar o nível de obsolescência, caso for muito obsoleto, para o container para que a imagem seja removida
+
+==============
+- verificar e parar o container
+- excluir a imagem referente ao bloco de layers obsoletos
