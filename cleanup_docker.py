@@ -20,8 +20,8 @@ def cleanContainer():
             container.stop()
             container.remove()
         # captura e atribui a data de inicio de fim do container
-        initdate_container = data['State']['StartedAt']
-        enddate_container = data['State']['FinishedAt']
+        #initdate_container = data['State']['StartedAt']
+        #enddate_container = data['State']['FinishedAt']
         #print initdate_container
         #print enddate_container
 
